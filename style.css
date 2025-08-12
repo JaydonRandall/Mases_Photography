@@ -1,0 +1,142 @@
+/* Reset & Base */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Grid Layout */
+.container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  padding: 30px;
+  box-sizing: border-box;
+  grid-template-areas:
+    "header header header"
+    "photo1 photo2 photo3"
+    "info1 info2 info3";
+}
+
+/* Header Styling */
+.header {
+  grid-area: header;
+  font-size: 3rem;
+  background-color: #151414;
+  color: rgb(243, 241, 241);
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Photo Sections */
+.photo1, .photo2, .photo3 {
+  background-color: #cba0a0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(9, 9, 9, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.photo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.photo-wrapper img:hover {
+  transform: scale(1.03);
+}
+
+.photo-wrapper h2 {
+  font-size: 1.3rem;
+  margin-top: 12px;
+  color: #444;
+}
+
+/* Info Sections */
+.info1, .info2, .info3 {
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
+}
+
+.info1:hover, .info2:hover, .info3:hover {
+  background-color: #e6e6e6;
+}
+
+/* Link Styling */
+a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #005fa3;
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid #ff9900;
+  outline-offset: 3px;
+}
+
+/* Assigning Grid Areas */
+.photo1 { grid-area: photo1; }
+.photo2 { grid-area: photo2; }
+.photo3 { grid-area: photo3; }
+
+.info1 { grid-area: info1; }
+.info2 { grid-area: info2; }
+.info3 { grid-area: info3; }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "photo1"
+      "info1"
+      "photo2"
+      "info2"
+      "photo3"
+      "info3";
+  }
+
+  .header {
+    font-size: 2.2rem;
+    padding: 16px;
+  }
+
+  .photo-wrapper h2 {
+    font-size: 1.1rem;
+  }
+
+  .container {
+    padding: 20px;
+    gap: 16px;
+  }
+}
